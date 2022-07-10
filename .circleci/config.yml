@@ -43,6 +43,7 @@ workflows:
       - jest:
           requires:
             - npm_install
+            
   # build:
     # docker:
       # - image: circleci/node:10
