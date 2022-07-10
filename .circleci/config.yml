@@ -1,12 +1,12 @@
 # .circleci/config.yml
 version: 2
 jobs:
-  yarn_install:
+  npm_install:
     docker:
       - image: circleci/node:16.13.1
     steps:
       - checkout
-      - run: yarn install
+      - run: npm i
   eslint:
     docker:
       - image: circleci/node:16.13.1
@@ -14,7 +14,7 @@ jobs:
       - checkout
       - run:
           name: Run Eslint
-          command: ./node_modules/.bin/eslint resources --ext js,jsx        
+          command: node_modules/.bin/eslint resources --ext js,jsx        
   jest:
     resource_class: large
     docker:
