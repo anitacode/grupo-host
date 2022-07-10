@@ -138,9 +138,10 @@ DomainTable.propTypes = {
 
 
 const Result = ( {checkDomainData, global, setWhois} ) => {
-    const { } = useContext(SetupContext);
-    const addToCart = (item) => {
-    }
+    // const { } = useContext(SetupContext);
+    // const addToCart = item => {
+    // }
+
     return <Row className='align-items-center justify-content-center'>
         <Col xs={12} md={10} lg={9} xl={9}>
             { checkDomainData !== null ?
