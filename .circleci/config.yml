@@ -11,10 +11,10 @@ jobs:
           key: node_modules-v1-{{ checksum "yarn.lock" }}
       - run: yarn install --check-files
       - save_cache:
-        name: Cache node_modules
-        key: node_modules-v1-{{ checksum "yarn.lock" }}
-        paths:
-          - node_modules
+          name: Cache node_modules
+          key: node_modules-v1-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
   eslint:
     docker:
       - image: cimg/node:16.13.2
