@@ -1,12 +1,12 @@
 # .circleci/config.yml
 version: 2
 jobs:
-  npm_install:
+  yarn_install:
     docker:
       - image: circleci/node:16.13.1
     steps:
       - checkout
-      - run: npm i
+      - run: yarn install
   eslint:
     docker:
       - image: circleci/node:16.13.1
@@ -36,14 +36,14 @@ workflows:
   version: 2
   run_tests:
     jobs:
-      - npm_install
+      - yarn_install
       - eslint:
           requires:
-            - npm_install
+            - yarn_install
       - jest:
           requires:
-            - npm_install
-            
+            - yarn_install
+
   # build:
     # docker:
       # - image: circleci/node:10
