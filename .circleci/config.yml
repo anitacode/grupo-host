@@ -44,13 +44,13 @@ workflows:
   version: 2
   run_tests:
     jobs:
-      - npm_install
+      - yarn_install
       - eslint:
           requires:
-            - npm_install
+            - yarn_install
       - jest:
           requires:
-            - npm_install
+            - yarn_install
 
   # build:
     # docker:
