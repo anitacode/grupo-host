@@ -1,15 +1,23 @@
 # .circleci/config.yml
 version: 2
 jobs:
-  npm_install:
+  yarn_install:
     docker:
-      - image: circleci/node:16.13.1
+      - image: cimg/node:16.13.2
     steps:
       - checkout
-      - run: npm i
+      - restore_cache:
+          name: Restore node_modules from cache
+          key: node_modules-v1-{{ checksum "yarn.lock" }}
+      - run: yarn install --check-files
+      - save_cache:
+        name: Cache node_modules
+        key: node_modules-v1-{{ checksum "yarn.lock" }}
+        paths:
+          - node_modules
   eslint:
     docker:
-      - image: circleci/node:16.13.1
+      - image: cimg/node:16.13.2
     steps:
       - checkout
       - run:
@@ -18,7 +26,7 @@ jobs:
   jest:
     resource_class: large
     docker:
-      - image: circleci/node:16.13.1
+      - image: cimg/node:16.13.2
     steps:
       - checkout
       - restore_cache:
