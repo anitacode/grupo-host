@@ -20,6 +20,9 @@ jobs:
       - image: cimg/node:16.13.2
     steps:
       - checkout
+      - restore_cache:
+          name: Restore node_modules from cache
+          key: node_modules-v1-{{ checksum "yarn.lock" }}
       - run:
           name: Run Eslint
           command: npm run fix       
@@ -32,10 +35,6 @@ jobs:
       - restore_cache:
           name: Restore node_modules from cache
           key: node_modules-v1-{{ checksum "yarn.lock" }}
-      - restore_cache:
-          name: Restore precompiled translations from cache
-          key: precompiled-translations-v1-{{ .Branch }}-{{ .Revision }}
-
       - run:
           name: Run Jest (if needed)
           command: node_modules/.bin/jest resources --silent --maxWorkers 4
