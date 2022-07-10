@@ -1,2 +1,2 @@
-require('./bootstrap');
-require('./apps/App');
+require('./bootstrap'); // eslint-disable-line no-undef
+require('./apps/App'); // eslint-disable-line no-undef
