@@ -9,7 +9,7 @@
         "prod": "npm run production",
         "production": "mix --production",
         "ftp-deploy": "node deploy.js",
-        "fix": "./node_modules/.bin/eslint --fix front-end"
+        "fix": "./node_modules/.bin/eslint --fix resources"
     },
     "devDependencies": {
         "axios": "^0.21",
@@ -20,7 +20,8 @@
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "resolve-url-loader": "^5.0.0",
-        "webpack-livereload-plugin": "^1.2.0"
+        "webpack-livereload-plugin": "^1.2.0",
+        "eslint": "^8.19.0"
     },
     "dependencies": {
         "@babel/preset-env": "^7.18.6",
