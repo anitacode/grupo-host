@@ -188,7 +188,7 @@ const Result = ( {checkDomainData, global, setWhois} ) => {
                                                 style={{
                                                     marginLeft:10
                                                 }} 
-                                                onClick = {()=>addToCart(checkDomainData.domains[0])}
+                                                onClick = {()=>null}
                                                 className='btn btn-info text-white'>Agregar al carrito
                                             </button>
                                         </div> 
