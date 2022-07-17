@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           name: Restore node_modules from cache
           key: node_modules-v1-{{ checksum "yarn.lock" }}
-      - run: yarn install --check-files
+      - run: npm i
       - save_cache:
           name: Cache node_modules
           key: node_modules-v1-{{ checksum "yarn.lock" }}
