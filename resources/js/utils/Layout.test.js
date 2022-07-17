@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import React from 'react';
+import { render, screen } from '@testing-library/react';
 
 import { SetupContext } from './../utils/generals';
 
@@ -14,6 +14,13 @@ describe('Loading layout features', () => {
     currency: 3,
     country: 11,
   };
+
+  const global = {
+    domainBackEnd: document.location.protocol + '//' + document.location.hostname + ':3000/api/',
+    domainBackEndFile: document.location.protocol + '//' + document.location.hostname + ':3000/',
+    domainFiles: document.location.protocol + '//grupo.host/'
+  }
+
   render(
     <SetupContext.Provider value={
         { 

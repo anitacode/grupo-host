@@ -14813,7 +14813,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
  * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
  * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
  */
-;(function() {
+(function() {
 
   /** Used as a safe reference for `undefined` in pre-ES5 environments. */
   var undefined;
@@ -70732,8 +70732,8 @@ var NumberFormat = /*@__PURE__*/(function (superclass) {
       );
     }
 
-    var leftBound = !!format ? 0 : prefix.length;
-    var rightBound = lastValue.length - (!!format ? 0 : suffix.length);
+    var leftBound = format ? 0 : prefix.length;
+    var rightBound = lastValue.length - (format ? 0 : suffix.length);
 
     if (
       // don't do anything if something got added
@@ -72215,7 +72215,7 @@ function useNavigate() {
       path.pathname = joinPaths([basename, path.pathname]);
     }
 
-    (!!options.replace ? navigator.replace : navigator.push)(path, options.state);
+    (options.replace ? navigator.replace : navigator.push)(path, options.state);
   }, [basename, navigator, routePathnamesJson, locationPathname]);
   return navigate;
 }
@@ -72472,7 +72472,7 @@ function Router(_ref3) {
     navigator,
     static: staticProp = false
   } = _ref3;
-  !!useInRouterContext() ?  true ? invariant(false, "You cannot render a <Router> inside another <Router>." + " You should never have more than one in your app.") : 0 : void 0;
+  useInRouterContext() ?  true ? invariant(false, "You cannot render a <Router> inside another <Router>." + " You should never have more than one in your app.") : 0 : void 0;
   let basename = normalizePathname(basenameProp);
   let navigationContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useMemo)(() => ({
     basename,
