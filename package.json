@@ -9,6 +9,7 @@
         "prod": "npm run production",
         "production": "mix --production",
         "ftp-deploy": "node deploy.js",
+        "lint:js": "eslint resources/js --ext js,jsx,ts,tsx --max-warnings 579",
         "fix": "eslint --fix resources/js",
         "test": "jest",
         "tdd": "npm run test -- --watch --notify"

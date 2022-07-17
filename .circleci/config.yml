@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           name: Restore node_modules from cache
           key: node_modules-v1-{{ checksum "yarn.lock" }}
-      - run: npm i
+      - run: yarn install
       - save_cache:
           name: Cache node_modules
           key: node_modules-v1-{{ checksum "yarn.lock" }}
@@ -20,10 +20,12 @@ jobs:
       - image: cimg/node:16.13.2
     steps:
       - checkout
-      - run: npm install eslint
+      - restore_cache:
+          name: Restore node_modules from cache
+          key: node_modules-v1-{{ checksum "yarn.lock" }}
       - run:
           name: Run Eslint
-          command: npm run fix       
+          command: npm run lint:js     
   jest:
     resource_class: large
     docker:
@@ -34,55 +36,13 @@ jobs:
       - run:
           name: Run Jest (if needed)
           command: npm test
-  laravel_testing:
-    docker:
-      - image: circleci/php:7.4-node-browsers
-    steps:
-      - checkout
-      - run:
-          name: "Prepare Environment"
-          command: |
-            sudo apt update
-            sudo docker-php-ext-install zip
-      - run:
-          name: "Create Environment file"
-          command: |
-            mv .env.testing .env
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            # "composer.lock" can be used if it is committed to the repo
-            - v1-dependencies-{{ checksum "composer.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-      - run:
-          name: "Install Dependencies"
-          command: composer install -n --prefer-dist
-      - save_cache:
-          key: v1-dependencies-{{ checksum "composer.json" }}
-          paths:
-            - ./vendor
-      - run:
-          name: "Generate App key"
-          command: php artisan key:generate
-      - run:
-          name: Run Laravel testing
-          command: php artisan test
-
 workflows:
   version: 2
   run_tests:
     jobs:
       - yarn_install
-      - eslint:
-          requires:
-            - yarn_install
-      - jest:
-          requires:
-            - yarn_install
-      - laravel_testing:
-          requires:
-            - yarn_install
+      - eslint
+      - jest
 
   # build:
     # docker:
