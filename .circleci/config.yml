@@ -23,6 +23,8 @@ jobs:
       - restore_cache:
           name: Restore node_modules from cache
           key: node_modules-v1-{{ checksum "yarn.lock" }}
+
+      - run: npm install eslint
       - run:
           name: Run Eslint
           command: npm run fix       
