@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios';
 import { SetupContext, Loader } from './../utils/generals';
 import { routesItems } from './../utils/routes';
 import { Layout } from './../utils/Layout';
 import './../../css/app.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const globalValues = {
   domainBackEnd: document.location.protocol + '//' + document.location.hostname + ':3000/api/',
@@ -14,7 +13,7 @@ const globalValues = {
   domainFiles: document.location.protocol + '//grupo.host/'
 }
 
-function App() {
+const App = () => {
     const [ loadingMain, setLoadingMain ] = useState(true);
     const [ main, setMain ] = useState( JSON.parse(localStorage.getItem('main')) );
     const [loadLang, setLoadLang ] = useState(true);
@@ -25,10 +24,9 @@ function App() {
 
     const getTranslation = () => {
       let url = globalValues.domainBackEndFile + 'translations/'+ getlocalConfig.lang +'_translations.json';
-      fetch( url )
-      .then(response => response.text())
+      axios.get( url )
       .then(re => {
-        localStorage.setItem('translations', re);
+        localStorage.setItem('translations', JSON.stringify(re.data));
         setLoadLang(false);
       });
     }
@@ -78,8 +76,3 @@ function App() {
 }
 
 export default App;
-
-
-const container = document.getElementById('root');
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(<App />);

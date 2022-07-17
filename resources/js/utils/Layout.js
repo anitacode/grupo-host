@@ -310,7 +310,7 @@ export const Layout = ( { children } ) => {
     // }
    
     return (
-        <div role={'layout'}>
+        <div data-testid='layout'>
             { main === null ? 
                 <Loader/>
             :
