@@ -10,7 +10,7 @@
         "production": "mix --production",
         "ftp-deploy": "node deploy.js",
         "fix": "./node_modules/.bin/eslint --fix resources",
-        "test": "cross-env NODE_ENV=test jest",
+        "test": "jest",
         "tdd": "npm run test -- --watch --notify"
     },
     "devDependencies": {
