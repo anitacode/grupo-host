@@ -41,7 +41,7 @@ workflows:
   run_tests:
     jobs:
       - yarn_install
-      - eslint
+      - eslint:
           requires:
             - yarn_install
       - jest
