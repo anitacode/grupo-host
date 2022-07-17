@@ -20,10 +20,6 @@ jobs:
       - image: cimg/node:16.13.2
     steps:
       - checkout
-      - restore_cache:
-          name: Restore node_modules from cache
-          key: node_modules-v1-{{ checksum "yarn.lock" }}
-
       - run: npm install eslint
       - run:
           name: Run Eslint
@@ -34,9 +30,7 @@ jobs:
       - image: cimg/node:16.13.2
     steps:
       - checkout
-      - restore_cache:
-          name: Restore node_modules from cache
-          key: node_modules-v1-{{ checksum "yarn.lock" }}
+      - run: npm install jest
       - run:
           name: Run Jest (if needed)
           command: npm test
