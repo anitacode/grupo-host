@@ -42,8 +42,8 @@ workflows:
     jobs:
       - yarn_install
       - eslint
-        requires:
-          - yarn_install
+          requires:
+            - yarn_install
       - jest
 
   # build:
