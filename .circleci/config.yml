@@ -56,7 +56,7 @@ jobs:
       - checkout
       - run:
           name: Deploy Production to cPanel
-          command: npm ftp-deploy
+          command: npm run ftp-deploy
 
 workflows:
   version: 2
