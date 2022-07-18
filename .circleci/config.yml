@@ -43,7 +43,9 @@ jobs:
       - image: cimg/node:16.13.2
     steps:
       - checkout
-      - run: npm install jest
+      - restore_cache:
+          name: Restore node_modules from cache
+          key: node_modules-v1-{{ checksum "yarn.lock" }}
       - run:
           name: Run Jest (if needed)
           command: npm test
