@@ -49,6 +49,15 @@ jobs:
       - run:
           name: Run Jest (if needed)
           command: npm test
+  prod_deploy:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - run:
+          name: Deploy Production to cPanel
+          command: npm ftp-deploy
+
 workflows:
   version: 2
   run_tests:
@@ -63,6 +72,18 @@ workflows:
       - jest:
           requires:
             - yarn_install
+      - prod_deploy:
+          requires:
+            - yarn_install
+            - eslint
+            - stylelint
+            - jest
+          context: production
+          filters:
+            branches:
+              only: /master/
+            tags:
+              only: /^v.+/
 
   # build:
     # docker:
