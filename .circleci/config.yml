@@ -55,6 +55,9 @@ workflows:
       - eslint:
           requires:
             - yarn_install
+      - stylelint:
+          requires:
+            - yarn_install
       - jest
 
   # build:
