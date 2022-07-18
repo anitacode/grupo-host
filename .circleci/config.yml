@@ -52,6 +52,9 @@ jobs:
   prod_deploy:
     machine:
       enabled: true
+    - restore_cache:
+          name: Restore node_modules from cache
+          key: node_modules-v1-{{ checksum "yarn.lock" }} 
     steps:
       - checkout
       - run:
