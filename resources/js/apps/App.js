@@ -4,7 +4,7 @@ import axios from 'axios';
 import { SetupContext, Loader } from './../utils/generals';
 import { routesItems } from './../utils/routes';
 import { Layout } from './../utils/Layout';
-import './../../css/app.css';
+import './../../stylesheets/app.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const globalValues = {

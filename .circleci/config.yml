@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           name: Restore node_modules from cache
           key: node_modules-v1-{{ checksum "yarn.lock" }}
-      - run: yarn install
+      - run: yarn install --check-files
       - save_cache:
           name: Cache node_modules
           key: node_modules-v1-{{ checksum "yarn.lock" }}
@@ -26,6 +26,17 @@ jobs:
       - run:
           name: Run Eslint
           command: npm run lint:js     
+  stylelint:
+    docker:
+      - image: cimg/node:16.13.2
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore node_modules from cache
+          key: node_modules-v1-{{ checksum "yarn.lock" }}
+      - run:
+          name: Run Stylelint
+          command: npm run lint:style
   jest:
     resource_class: large
     docker:
