@@ -50,13 +50,13 @@ jobs:
           name: Run Jest (if needed)
           command: npm test
   prod_deploy:
-    machine:
-      enabled: true
-    - restore_cache:
-          name: Restore node_modules from cache
-          key: node_modules-v1-{{ checksum "yarn.lock" }} 
+    docker:
+      - image: cimg/node:16.13.2  
     steps:
       - checkout
+      - restore_cache:
+          name: Restore node_modules from cache
+          key: node_modules-v1-{{ checksum "yarn.lock" }} 
       - run:
           name: Deploy Production to cPanel
           command: npm run ftp-deploy
