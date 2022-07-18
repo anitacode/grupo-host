@@ -12,3 +12,6 @@ To deploy backend, just run
 To enable the live reloading, just run 
 
 `npm run watch`
+
+# Testing
+Grupo host use testing-library for the front-end and laravel testing for the backend.
