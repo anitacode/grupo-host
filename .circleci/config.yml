@@ -50,22 +50,19 @@ jobs:
           name: Run Jest (if needed)
           command: npm test
   prod_deploy:
-
     docker:
       - image: cimg/node:16.13.2
-
     working_directory: ~/repo
-
     steps:
       - checkout
-      - run: npm install
       - run: 
           name: Deploy Master Branch
           command: |
             sudo apt-get update
             sudo apt-get -qq install git-ftp
             echo "Deploying project ..."
-            git ftp push --user "${FTP_USER}" --passwd "${FTP_PASSWORD}" ${FTP_HOST}
+            echo $(git status)
+            git ftp init --init-if-not-exist --user "${FTP_USER}" --passwd "${FTP_PASSWORD}" ${FTP_HOST}
 workflows:
   version: 2
   run_tests:
