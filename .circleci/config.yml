@@ -55,8 +55,8 @@ jobs:
     steps:
       - checkout
       - run: 
-        name: Installing dotenv, fs, ftp, glob
-        command: npm i dotenv && npm i fs && npm i v && npm i glob
+          name: Installing dotenv, fs, ftp, glob
+          command: npm i dotenv && npm i fs && npm i v && npm i glob
       - run:
           name: Deploy Production to cPanel
           command: npm run ftp-deploy
