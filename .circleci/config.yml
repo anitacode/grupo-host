@@ -50,16 +50,22 @@ jobs:
           name: Run Jest (if needed)
           command: npm test
   prod_deploy:
+
     docker:
-      - image: cimg/node:16.13.2  
+      - image: cimg/node:16.13.2
+
+    working_directory: ~/repo
+
     steps:
       - checkout
+      - run: npm install
       - run: 
-          name: Installing dotenv, fs, ftp, glob
-          command: npm i dotenv && npm i fs && npm i v && npm i glob
-      - run:
-          name: Deploy Production to cPanel
-          command: npm run ftp-deploy
+          name: Deploy Master Branch
+          command: |
+            sudo apt-get update
+            sudo apt-get -qq install git-ftp
+            echo "Deploying project ..."
+            git ftp push --user "${FTP_USER}" --passwd "${FTP_PASSWORD}" ${FTP_HOST}
 workflows:
   version: 2
   run_tests:
@@ -77,7 +83,7 @@ workflows:
       - prod_deploy:
           filters:
             branches:
-              ignore: /.*/
+              only: /master/
             tags:
               only: /^v([0-9]+\.){2}[0-9]+$/
 
