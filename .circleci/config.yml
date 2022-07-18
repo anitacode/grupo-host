@@ -76,11 +76,6 @@ workflows:
           requires:
             - yarn_install
       - prod_deploy:
-          requires:
-            - yarn_install
-            - eslint
-            - stylelint
-            - jest
           filters:
             branches:
               ignore: /.*/
