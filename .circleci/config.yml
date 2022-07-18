@@ -81,7 +81,6 @@ workflows:
             - eslint
             - stylelint
             - jest
-          context: production
           filters:
             branches:
               only: /master/
