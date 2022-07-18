@@ -303,14 +303,14 @@ export const Layout = ( { children } ) => {
         loadMain()
     }
 
-    const addToCart = (item) => {
-    }
+    // const addToCart = (item) => {
+    // }
 
-    const deleteFromCart = (index) => {
-    }
+    // const deleteFromCart = (index) => {
+    // }
    
     return (
-        <div role={'layout'}>
+        <div data-testid='layout'>
             { main === null ? 
                 <Loader/>
             :
@@ -339,5 +339,5 @@ export const Layout = ( { children } ) => {
 }
 
 Layout.propTypes = {
-    childrens: PropTypes.any
+    children: PropTypes.any
 }

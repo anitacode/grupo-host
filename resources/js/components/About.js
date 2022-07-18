@@ -239,7 +239,6 @@ const About = () => {
 
     return (
         <div className=''>
-
             <div className='videoAbout d-flex align-items-center justify-content-center'>
                 <div className='videoAboutContainer' dangerouslySetInnerHTML={{
                         __html : `
@@ -256,7 +255,7 @@ const About = () => {
                         </video>
                         `
                     }}>
-                </div>
+                </div> 
                 <div>
                     <h4 className='text-center fade-in-top text-white test-shadow'>{ translate('no-ponga-su-proyecto-en-manos-de-cualquiera') }</h4>
                     <h2 className='m-0 jumbo text-white test-shadow'>{ translate('asegurelo-con-nosotros') }</h2>

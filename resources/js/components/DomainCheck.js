@@ -138,9 +138,10 @@ DomainTable.propTypes = {
 
 
 const Result = ( {checkDomainData, global, setWhois} ) => {
-    const { } = useContext(SetupContext);
-    const addToCart = (item) => {
-    }
+    // const { } = useContext(SetupContext);
+    // const addToCart = item => {
+    // }
+
     return <Row className='align-items-center justify-content-center'>
         <Col xs={12} md={10} lg={9} xl={9}>
             { checkDomainData !== null ?
@@ -187,7 +188,7 @@ const Result = ( {checkDomainData, global, setWhois} ) => {
                                                 style={{
                                                     marginLeft:10
                                                 }} 
-                                                onClick = {()=>addToCart(checkDomainData.domains[0])}
+                                                onClick = {()=>null}
                                                 className='btn btn-info text-white'>Agregar al carrito
                                             </button>
                                         </div> 

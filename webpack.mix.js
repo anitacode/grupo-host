@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-const LiveReloadPlugin = require('webpack-livereload-plugin');
+var LiveReloadPlugin = require('webpack-livereload-plugin');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -36,11 +36,10 @@ const LiveReloadPlugin = require('webpack-livereload-plugin');
         }
     }
 }
-
+mix.browserSync('http://127.0.0.1:8000');
 mix.extend('loaders', new Loaders());
 mix.webpackConfig({ 
-    stats: { children: true, }
+    stats: { children: true, }, 
 });
-mix.browserSync('localhost:3000');
-mix.js('resources/js/app.js', 'public/js').react();
+mix.js('resources/js/app.js', 'public/js')
 mix.loaders();
