@@ -60,7 +60,9 @@ workflows:
       - stylelint:
           requires:
             - yarn_install
-      - jest
+      - jest:
+          requires:
+            - yarn_install
 
   # build:
     # docker:
