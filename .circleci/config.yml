@@ -54,9 +54,9 @@ jobs:
       - image: cimg/node:16.13.2  
     steps:
       - checkout
-      - restore_cache:
-          name: Restore node_modules from cache
-          key: node_modules-v1-{{ checksum "yarn.lock" }} 
+      - run: 
+        name: Installing dotenv, fs, ftp, glob
+        command: npm i dotenv && npm i fs && npm i v && npm i glob
       - run:
           name: Deploy Production to cPanel
           command: npm run ftp-deploy
