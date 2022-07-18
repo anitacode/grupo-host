@@ -83,7 +83,7 @@ workflows:
             branches:
               only: /master/
             tags:
-              ignore: /.*/
+              only: /^v.+/
 
   # build:
     # docker:
