@@ -51,15 +51,15 @@ jobs:
           command: npm test
   prod_deploy:
     docker:
-      - image:  circleci/node:16-browsers
+      - image:  cimg/node:16-browsers
     working_directory: ~/repo
     steps:
       - checkout
       - run: 
           name: Deploy Master Branch
           command: |
-            apt-get update
-            apt-get -qq install git-ftp
+            sudo apt-get update
+            sudo apt-get -qq install git-ftp
             echo "Deploying project ..."
             echo $(git status)
             git ftp push --user "${FTP_USER}" --passwd "${FTP_PASSWORD}" ${FTP_HOST}
