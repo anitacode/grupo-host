@@ -66,19 +66,19 @@ jobs:
 
       #       steps:
       - checkout
-      - deploy:
-        name: Deploy to host if branch is master
-        command: |
-        if [ "${CIRCLE_BRANCH}" == "master" ]; then
-          apt-get update
-          apt-get -qq install git-ftp
-          echo "'_$(git status -uno --porcelain | wc -l)_'"
-          git status -uno --porcelain
-          echo "Initiating Push site:labs.kosmik.id."
-          git ftp init --user "${FTP_USER}" --passwd "${FTP_PASSWORD}" ${FTP_HOST}
-        else
-          echo "Not master branch so not deploying"
-        fi
+      - run:
+          name: Deploy to host if branch is master
+          command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            apt-get update
+            apt-get -qq install git-ftp
+            echo "'_$(git status -uno --porcelain | wc -l)_'"
+            git status -uno --porcelain
+            echo "Initiating Push site:labs.kosmik.id."
+            git ftp init --user "${FTP_USER}" --passwd "${FTP_PASSWORD}" ${FTP_HOST}
+          else
+            echo "Not master branch so not deploying"
+          fi
 workflows:
   version: 2
   run_tests:
