@@ -1,0 +1,22 @@
+name: Publish Website to CPanel
+on:
+  push:
+    branches:
+      - main
+jobs:
+  FTP-Action:
+    name: ftp-action
+    uses: sebastianpopp/ftp-action@v2.0.0
+    with:
+      # FTP host
+      host: ${{ secrets.FTP_SERVER }}
+      # FTP user
+      user: ${{ secrets.FTP_USER }}
+      # FTP password
+      password: ${{ secrets.FTP_PASS }}
+      # Force SSL encryption
+      forceSsl: # optional, default is false
+      # Local directory
+      localDir: # optional, default is .
+      # Remote directory
+      remoteDir: # optional, default is .
