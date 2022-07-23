@@ -69,7 +69,8 @@ jobs:
       - run:
           name: Deploy to host if branch is master
           command: |
-            if [[ "${CIRCLE_BRANCH}" == "master" ]] then
+            if [[ "${CIRCLE_BRANCH}" == "master" ]] 
+            then
               apt-get update
               apt-get -qq install git-ftp
               echo "'_$(git status -uno --porcelain | wc -l)_'"
