@@ -58,8 +58,8 @@ jobs:
       - run: 
           name: Deploy Master Branch
           command: |
-            sudo apt-get update
-            sudo apt-get -qq install git-ftp
+            apt-get update
+            apt-get -qq install git-ftp
             echo "Deploying project ..."
             echo $(git status)
             git ftp push --user "${FTP_USER}" --passwd "${FTP_PASSWORD}" ${FTP_HOST}
