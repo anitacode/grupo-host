@@ -10,11 +10,11 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Upload ftp
-      uses: sebastianpopp/ftp-action@releases/v2
-      with:
-        host: ${{ secrets.FTP_SERVER }}
-        user: ${{ secrets.FTP_USER }}
-        password: ${{ secrets.FTP_PASS }}
-        # localDir: "dist"
-        remoteDir: "public_html"
-        # options: "--delete --asci"
+        uses: sebastianpopp/ftp-action@releases/v2
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          # localDir: "dist"
+          remoteDir: "public_html"
+          # options: "--delete --asci"
