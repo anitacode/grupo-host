@@ -5,10 +5,9 @@ on:
       - main
 jobs:
   deploy:
-    name: Deploy
+    name: ftpToCPanel
     runs-on: ubuntu-latest
     steps:
-    # - uses: actions/checkout@v2
       uses: sebastianpopp/ftp-action@releases/v2
       with:
         host: ${{ secrets.FTP_SERVER }}
