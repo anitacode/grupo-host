@@ -18,3 +18,4 @@ jobs:
         # localDir: "dist"
         remoteDir: "public_html"
         # options: "--delete --asci"
+        
