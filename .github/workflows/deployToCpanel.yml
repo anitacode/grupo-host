@@ -1,20 +1,31 @@
 name: Deploy via ftp
 on: 
   push:
-    branches:
-      - main
+    branches: [ master ]
 jobs:
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Upload ftp
-        uses: sebastianpopp/ftp-action@releases/v2
+  build:
+      runs-on: ubuntu-latest
+      defaults:
+        run:
+          shell: bash
+      steps:
+      - uses: actions/checkout@v2
         with:
-          host: ${{ secrets.FTP_SERVER }}
-          user: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          # localDir: "dist"
-          remoteDir: "public_html"
-          # options: "--delete --asci"
+          fetch-depth: 2
+
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+
+      - name: npm install
+        run: npm install
+
+      - name: npm run bundle
+        run: npm run bundle
+
+      - name: FTP Deploy to WP Engine (Staging)
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USER }}
+          ftp-password: ${{ secrets.FTP_PASS }}
+          
