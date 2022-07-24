@@ -1,28 +1,19 @@
-name: Deploy via ftp
-on: 
+name: Publish Website to CPanel
+on:
   push:
-    branches: [ master ]
+    branches:
+      - main
 jobs:
-  build:
-      runs-on: ubuntu-latest
-      defaults:
-        run:
-          shell: bash
-      steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-
-      - name: Yarn install
-        run: yarn install
-
-      - name: Composer install
-        run: composer install
-
-      - name: FTP Deploy to WP Engine (Staging)
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
-        with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USER }}
-          ftp-password: ${{ secrets.FTP_PASS }}
-          
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.1.0
+      with:
+        fetch-depth: 2
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        ftp-server: ${{ secrets.FTP_SERVER }}
+        ftp-username: ${{ secrets.FTP_USER }}
+        ftp-password: ${{ secrets.FTP_PASS }}
