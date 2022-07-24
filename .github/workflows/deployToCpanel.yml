@@ -1,9 +1,8 @@
 name: Publish Website to CPanel
 on: 
   push:
-      branches:
-        - master
-name: Deploy website on push
+    branches:
+      - master
 jobs:
   web-deploy:
     name: 🎉 Deploy
@@ -18,3 +17,4 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         password: ${{ secrets.FTP_PASS }}
+        
