@@ -4,8 +4,19 @@
 
 Is a web application that provides users the oportunity of having web services for their own. We use Laravel for the backend and react for the front end.
 
-# Deployment
-To deploy backend, just run 
+# Deployment Locally
+
+Run 
+`composer install`
+It will install all the dependencies in order to make the backend run.
+On production enviroment we use
+`composer install --no-dev`
+
+Run
+`yarn install`
+It will install all the dependencies in order to make the frontend run.
+
+To deploy backend run
 
 `php artisan serve`
 
