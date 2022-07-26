@@ -41,11 +41,10 @@ jobs:
         # Port number of the server.
         port: 22
         # File Location or string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)
-        privateKey: ${{ secrets.cPANEL_PRIVATE_KEY }}
+        privateKey: ${{ secrets.CPANEL_PRIVATE_KEY }}
         # Password for password-based user authentication.
         password: ${{ secrets.FTP_PASS }}
         # For an encrypted private key, this is the passphrase used to decrypt it.
         # passphrase: # optional
         # # Try keyboard-interactive user authentication if primary user authentication method fails.
         # tryKeyboard: # optional
-        
