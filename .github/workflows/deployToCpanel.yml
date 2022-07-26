@@ -21,10 +21,10 @@ jobs:
         protocol: ftp
         server-dir: /
   run-commands:
-    name: Run SSH command
+    name: Run SSH command appleboy
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
+    - name: executing remote ssh commands using ssh
       uses: appleboy/ssh-action@master
       with:
         host: ${{ secrets.FTP_SERVER }}
@@ -32,6 +32,7 @@ jobs:
         key: ${{ secrets.CPANEL_PRIVATE_KEY }}
         port: 21
         script: composer install --no-dev
+
     # - name: 🚚 Get latest code
     #   uses: actions/checkout@v2
     # - name: Running SSH command  
