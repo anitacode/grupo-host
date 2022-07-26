@@ -30,6 +30,7 @@ jobs:
         host: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
         key: ${{ secrets.CPANEL_PRIVATE_KEY }}
+        passphrase: Y49vdES^h[gi
         port: 21
         script: composer install --no-dev
 
