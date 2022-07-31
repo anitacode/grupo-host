@@ -7,11 +7,11 @@ jobs:
   check-ip:
     name: Checking IP
     runs-on: ubuntu-latest
-      steps:
-        - name: 🛒 Checkout
-          uses: actions/checkout@v2
-        - name: 🔎 Check IP
-          run: curl https://api.ipify.org
+    steps:
+      - name: 🛒 Checkout
+        uses: actions/checkout@v2
+      - name: 🔎 Check IP
+        run: curl https://api.ipify.org
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
