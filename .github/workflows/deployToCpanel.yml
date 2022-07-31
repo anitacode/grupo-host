@@ -29,7 +29,36 @@ jobs:
       with:
         host: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
-        key: ${{ secrets.CPANEL_PRIVATE_KEY }}
+        key: '-----BEGIN RSA PRIVATE KEY-----
+Proc-Type: 4,ENCRYPTED
+DEK-Info: AES-128-CBC,6AA4AEC28E4AD1E0EE792021ABC13200
+
+UKf8BYxG5jgqllj8lqsu9rS4ajbdofOkgQwd7i+aR8mfL5QteeEHE2QVhV+Z+s8l
+vMDIGApmlrhncJ2K9Pad1pNT/7kHs3W/s5kP4T0ouzV+sof+JWNc2j3p3oaccmjo
+rF2NLFQPYzUYR219cJoukqCqy9OxswKUZEFnimWWzmYR8GYqxQR44513IGY+yRAR
+YA/iLygSYRuZwhJblO3T6tUnO/Zj7WJDXv3A8WBSnPFkdNCxkaV/sGciIrhMS+d1
+ABBFc+K2AbdZSBxj4tuHwr5XjMThRmOpIPkYejUIvR4zDcANCWJGry2HvsAE5V7G
+UyWFqz6+nibxcG4C12VUHIXRmtQ1vmBGcUy8O1NzWebFroC6QXgR0PKwIbnbIEyJ
+CKhCVSdhkzOKcI3CzvyDEpftRVBMfvCzem7hxJPDZSpY03XXSjo8bqxx+tMb6/RU
+fYI5kGeaQBoJdkckMBVjAjrfVS2Fq56XA/WLFLto8PkQz9qCj4jrVNtevi52/XA3
+piFwrZXXhzv6T/TqeIN0qn0eijeDmqqkx72uxWJTiG3WErwXgI3wv7Nqxe1xAIiq
+5z7bJcAYh9zAEKDBRkH4WNEX5gx8SCJKO5c5GmuhFZoBuyxAtK+H5dDQv80BzLFe
+uHxtICAUiDa3etpxblig+iznhw9uHMqEW55fJWqmney7Tgkoi6GUBlZH1epwSNPD
+X+Mv9sM/M2nC9VOMKLfe0n/0s55Id2Hh3RQEThBa9bVfUwiMW2pvNGKhqBOkJNcq
+DbrbvOqSWZxhFdoi2AOmG/DdHszQn3I2GUZIelAh+At9pRTEC+fEbXt5hwzqyc/t
+AyH52stdaSLTX8PPud16/Ynsc5fPNVpxjqTc5V3I8VodEmih9r1DlOwqhPIP7p8M
+7x8SxCvhZ3r/1vMGhDEOiTZEdRZJohEYdrAaMT7bI5613RVpeQno6k2zX3GDk5UB
+5V+vBYPzUK3teX7w3lvhk9BRzZ8948wRQRHaz6DRrZs+jmO4x2jpZIRGsnIPit40
+EwrDhWAn5T6kvrtgcC+cwHog83SyqPXPP3qqc26lpr281SLgBGb7xWML+lcQEm9W
+ogNB1RiNo6b+ZJFcXauU4B11DQM45kXlmyFlp9SBzkargv1hTxVeUlIWeJo5wN79
+++nwzIIwZxzAv7N9HJgnQC/FsFDVTfarU+bqR7khsUuOfVy7dWaEqIlgqonnyGYm
+FDw9UldF4o5pXtpEU6NFL+smlE5O8SIvNff99xp75zZhxBCDTNFdV6LZkUdcB1NW
++m4oUdwhB3tkvc2gNmfsKnjO7SP7DC1V2H9X9eure6OhibTtBJe76ukWnlq697mU
+k4gKuErxr8aFyhEJ1tN/jP+vq1dY9FUhWPATwHu0D+xYzRS2WiYBAf2F+PHbKpMC
+69Izp+GptjfttMR0olcVT77PnevcKrB/noIpwgsVlG6shdbfqKp6etsl2MldQwlO
+gHgX5YduuRMWbQNwr6q128PzNet6KQdA3Xeun5ImNGoLKjuAbTrIfm8kXo/o7mkA
+fehrvss64PDfp6NeG0nUZ3CzR2QkaIH9aWsPyP5B2EiWY/bafTNkyzo57IZqAJA9
+-----END RSA PRIVATE KEY-----'
         passphrase: 'Y49vdES^h[gi'
         port: 21
         script: composer install --no-dev
