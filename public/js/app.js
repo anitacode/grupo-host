@@ -1,3 +1,4 @@
+import { env } from "./env.js";
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -8709,12 +8710,9 @@ function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Sy
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var env = process.env.APP_ENV
 var port;
-console.log(env);
 
-env === 'local' ? port = ':3000' : port = '';
-console.log('port', port);
+env.APP_ENV === 'local' ? port = ':3000' : port = '';
 var globalValues = {
   domainBackEnd: document.location.protocol + '//' + document.location.hostname + port + '/api/',
   domainBackEndFile: document.location.protocol + '//' + document.location.hostname + port + '/',
