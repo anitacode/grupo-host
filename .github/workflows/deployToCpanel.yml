@@ -41,7 +41,6 @@ jobs:
         password: 'eLvjns6lN'
         port: 22
         script: whoami
-
     # name: Run SSH command 
     # runs-on: ubuntu-latest
     # steps:
