@@ -8719,7 +8719,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var env = "local";
 var port;
+console.log(env);
 env === 'local' ? port = ':3000/' : port = '';
+console.log('port', port);
 var globalValues = {
   domainBackEnd: document.location.protocol + '//' + document.location.hostname + port + 'api/',
   domainBackEndFile: document.location.protocol + '//' + document.location.hostname + port + '/',
