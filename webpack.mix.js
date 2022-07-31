@@ -1,5 +1,15 @@
+require('dotenv').config(); 
+const webpack = require('webpack');
 const mix = require('laravel-mix');
 var LiveReloadPlugin = require('webpack-livereload-plugin');
+
+let dotenvplugin = new webpack.DefinePlugin({
+    'process.env': {
+        APP_ENV: JSON.stringify(process.env.APP_ENV)
+    }
+})
+
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -40,6 +50,9 @@ mix.browserSync('http://127.0.0.1:8000');
 mix.extend('loaders', new Loaders());
 mix.webpackConfig({ 
     stats: { children: true, }, 
+    plugins: [
+        dotenvplugin,
+    ]
 });
 mix.js('resources/js/app.js', 'public/js')
 mix.loaders();
