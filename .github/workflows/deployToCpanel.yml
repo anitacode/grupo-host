@@ -32,7 +32,8 @@ jobs:
         username: 'betagrupo'
         password: 'eLvjns6lN'
         port: 22
-        script: composer install --no-dev
+        script: whoami
+        # script: composer install --no-dev
 
     # - name: 🚚 Get latest code
     #   uses: actions/checkout@v2
