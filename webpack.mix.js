@@ -1,7 +1,6 @@
 require('dotenv').config(); 
 const webpack = require('webpack');
 const mix = require('laravel-mix');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 let dotenvplugin = new webpack.DefinePlugin({
     'process.env': {
