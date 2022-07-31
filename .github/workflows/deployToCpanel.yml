@@ -42,8 +42,8 @@ jobs:
         # password: 'eLvjns6lN'
         key: ${{ secrets.CPANEL_PRIVATE_KEY }}
         port: 22
-        script: whoami
-        
+        script: composer install --no-dev && yarn install
+
     # name: Run SSH command 
     # runs-on: ubuntu-latest
     # steps:
