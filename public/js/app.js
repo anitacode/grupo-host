@@ -8750,6 +8750,7 @@ var App = function App() {
 
   var getlocalConfig = localStorage.getItem('config');
   var getlocalTranslation = JSON.parse(localStorage.getItem('translations'));
+  console.log(globalValues);
 
   var getTranslation = function getTranslation() {
     var url = globalValues.domainBackEndFile + 'translations/' + getlocalConfig.lang + '_translations.json';

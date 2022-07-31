@@ -29,6 +29,8 @@ const App = () => {
     let getlocalConfig = localStorage.getItem('config');
     let getlocalTranslation = JSON.parse(localStorage.getItem('translations'));
 
+    console.log(globalValues)
+
     const getTranslation = () => {
       let url = globalValues.domainBackEndFile + 'translations/'+ getlocalConfig.lang +'_translations.json';
       axios.get( url )
