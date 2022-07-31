@@ -24,7 +24,7 @@ jobs:
     needs: web-deploy
     uses: garygrossgarten/github-action-ssh@release
         with:
-          command: ls -a
+          command: whoami
           host: 'beta.grupo.host'
           username: 'betagrupo'
           password: 'eLvjns6lN'
