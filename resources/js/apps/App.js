@@ -9,10 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const env = process.env.APP_ENV
 let port
-console.log(env)
 env === 'local' ? port = ':3000' : port = ''
 
-console.log('port', port)
 const globalValues = {
   domainBackEnd: document.location.protocol + '//' + document.location.hostname + port + '/api/',
   domainBackEndFile: document.location.protocol + '//' + document.location.hostname + port + '/',
@@ -28,8 +26,6 @@ const App = () => {
     
     let getlocalConfig = localStorage.getItem('config');
     let getlocalTranslation = JSON.parse(localStorage.getItem('translations'));
-
-    console.log(globalValues)
 
     const getTranslation = () => {
       let url = globalValues.domainBackEndFile + 'translations/'+ getlocalConfig.lang +'_translations.json';
