@@ -48,7 +48,7 @@ jobs:
     name: Generate Translations
     runs-on: ubuntu-latest
     steps:
-      - name: Generating Translations
+    - name: Generating Translations
       uses: wei/wget@v1
       with:
         args: -qO- https://beta.grupo.host/api/generateTranslations
