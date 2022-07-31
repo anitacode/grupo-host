@@ -43,6 +43,15 @@ jobs:
         key: ${{ secrets.CPANEL_PRIVATE_KEY }}
         port: 22
         script: cd public_html && composer install --no-dev && yarn install
+  generate-translations:
+    needs: run-commands
+    name: Generate Translations
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generating Translations
+      uses: wei/wget@v1
+      with:
+        args: -qO- https://beta.grupo.host/api/generateTranslations
 
     # name: Run SSH command 
     # runs-on: ubuntu-latest
