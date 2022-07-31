@@ -19,6 +19,7 @@ const globalValues = {
   domainFiles: document.location.protocol + '//grupo.host/'
 }
 
+
 const App = () => {
     const [ loadingMain, setLoadingMain ] = useState(true);
     const [ main, setMain ] = useState( JSON.parse(localStorage.getItem('main')) );
