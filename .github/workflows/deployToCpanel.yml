@@ -41,8 +41,9 @@ jobs:
         passphrase: 'grupohost'
         # password: 'eLvjns6lN'
         key: ${{ secrets.CPANEL_PRIVATE_KEY }}
-        port: 21
+        port: 22
         script: whoami
+        
     # name: Run SSH command 
     # runs-on: ubuntu-latest
     # steps:
