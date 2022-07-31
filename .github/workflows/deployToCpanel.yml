@@ -29,8 +29,7 @@ jobs:
       with:
         host: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USER }}
-        key: ${{ secrets.CPANEL_PRIVATE_KEY }}
-        passphrase: 'grupohost'
+        password: 'eLvjns6lN'
         port: 22
         script: composer install --no-dev
 
