@@ -27,8 +27,8 @@ jobs:
     - name: executing remote ssh commands using ssh
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USER }}
+        host: 'beta.grupo.host'
+        username: 'betagrupo'
         password: 'eLvjns6lN'
         port: 22
         script: composer install --no-dev
