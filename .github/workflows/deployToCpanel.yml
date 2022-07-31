@@ -22,13 +22,17 @@ jobs:
         server-dir: /
   run-commands:
     needs: web-deploy
-    uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: whoami
-          host: 'beta.grupo.host'
-          username: 'betagrupo'
-          password: 'eLvjns6lN'
-          port: '22'
+    name: Run SSH command 
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using ssh
+      uses: garygrossgarten/github-action-ssh@release
+      with:
+        command: whoami
+        host: 'beta.grupo.host'
+        username: 'betagrupo'
+        password: 'eLvjns6lN'
+        port: '22'
     # name: Run SSH command appleboy
     # runs-on: ubuntu-latest
     # steps:
