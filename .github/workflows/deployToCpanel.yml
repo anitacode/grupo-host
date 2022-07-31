@@ -38,7 +38,8 @@ jobs:
       with:
         host: 'beta.grupo.host'
         username: 'betagrupo'
-        password: 'eLvjns6lN'
+        # password: 'eLvjns6lN'
+        key: ${{ secrets.CPANEL_PRIVATE_KEY }}
         port: 22
         script: whoami
     # name: Run SSH command 
