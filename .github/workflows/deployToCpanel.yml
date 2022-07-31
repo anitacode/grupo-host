@@ -30,7 +30,7 @@ jobs:
         host: 'beta.grupo.host'
         username: 'betagrupo'
         password: 'eLvjns6lN'
-        port: 22
+        port: 21
         script: composer install --no-dev
 
     # - name: 🚚 Get latest code
