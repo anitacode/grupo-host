@@ -8716,8 +8716,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-var env = "local";
+var env = process.env.APP_ENV
 var port;
 console.log(env);
 env === 'local' ? port = ':3000/' : port = '';
