@@ -22,17 +22,31 @@ jobs:
         server-dir: /
   run-commands:
     needs: web-deploy
-    name: Run SSH command 
+
+    name: Run SSH command appleboy
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using ssh
-      uses: garygrossgarten/github-action-ssh@release
+      uses: appleboy/ssh-action@master
       with:
-        command: whoami
         host: 'beta.grupo.host'
         username: 'betagrupo'
         password: 'eLvjns6lN'
-        port: '22'
+        port: 22
+        script: whoami
+
+    # name: Run SSH command 
+    # runs-on: ubuntu-latest
+    # steps:
+    # - name: executing remote ssh commands using ssh
+    #   uses: garygrossgarten/github-action-ssh@release
+    #   with:
+    #     command: whoami
+    #     host: 'beta.grupo.host'
+    #     username: 'betagrupo'
+    #     password: 'eLvjns6lN'
+    #     port: '22'
+
     # name: Run SSH command appleboy
     # runs-on: ubuntu-latest
     # steps:
