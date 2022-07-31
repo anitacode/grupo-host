@@ -38,6 +38,7 @@ jobs:
       with:
         host: 'beta.grupo.host'
         username: 'betagrupo'
+        passphrase: 'grupohost'
         # password: 'eLvjns6lN'
         key: ${{ secrets.CPANEL_PRIVATE_KEY }}
         port: 22
