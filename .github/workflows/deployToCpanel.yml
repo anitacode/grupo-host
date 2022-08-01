@@ -28,7 +28,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: executing remote ssh commands using ssh
-        run: cd public_html && composer install --no-dev && yarn install
+        run: cd ../../../../public_html && composer install --no-dev && yarn install
   generate-translations:
     needs: run-commands
     name: Generate Translations
