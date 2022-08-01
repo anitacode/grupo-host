@@ -22,8 +22,9 @@ jobs:
     - id: 'deploy'
       uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
-        service: 'production'
+        service: '115418536415602664257'
         image: 'centos-7-v20220719'
+        project_id: 'gcr.io/cloudrun/grupohost-358101'
 
     - name: 'Use output'
       run: 'curl "${{ steps.deploy.outputs.url }}"'
