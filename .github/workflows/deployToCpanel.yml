@@ -19,11 +19,19 @@ jobs:
         # service_account: 'anabel@host.com.do'
         service_account: 'grouphost-356@grouphost-358101.iam.gserviceaccount.com'
 
-    - id: 'upload-folder'
-      uses: 'google-github-actions/upload-cloud-storage@v0'
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-cloudrun@v0'
       with:
-        path: '/'
-        destination: 'grupo-bucket'
+        service: 'production'
+        image: 'centos-7-v20220719'
+
+    - name: 'Use output'
+      run: 'curl "${{ steps.deploy.outputs.url }}"'
+    # - id: 'upload-folder'
+    #   uses: 'google-github-actions/upload-cloud-storage@v0'
+    #   with:
+    #     path: '/'
+    #     destination: 'grupo-bucket'
 
   # web-deploy:
   #   name: 🎉 Deploy
