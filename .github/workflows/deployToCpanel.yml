@@ -16,7 +16,7 @@ jobs:
       uses: 'google-github-actions/auth@v0'
       with:
         workload_identity_provider: 'projects/grupohost-358101/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-        service_account: '54426756522-compute@developer.gserviceaccount.com'
+        service_account: 'anabel@host.com.do'
         # service_account: 'grupohost-358101@production.iam.gserviceaccount.com'
 
     - id: 'upload-folder'
