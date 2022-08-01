@@ -7,20 +7,7 @@ jobs:
   job_id:
     runs-on: ubuntu-latest
 
-    permissions:
-      actions: write
-      checks: write
-      contents: write
-      deployments: write
-      id-token: write
-      issues: write
-      discussions: write
-      packages: write
-      pages: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
+    permissions: write-all
 
     steps:
     - id: Checkout
@@ -29,7 +16,7 @@ jobs:
       uses: 'google-github-actions/auth@v0'
       with:
         workload_identity_provider: 'projects/grupohost-358101/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
-        service_account: 'service-54426756522@compute-system.iam.gserviceaccount.com'
+        service_account: '54426756522-compute@developer.gserviceaccount.com'
         # service_account: 'grupohost-358101@production.iam.gserviceaccount.com'
 
     - id: 'upload-folder'
