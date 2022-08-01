@@ -26,15 +26,8 @@ jobs:
     runs-on: grupohost
     steps:
     - name: executing remote ssh commands using ssh
-      uses: appleboy/ssh-action@master
-      with:
-        host: 'beta.grupo.host'
-        username: 'betagrupo'
-        passphrase: 'grupohost'
-        # password: 'eLvjns6lN'
-        key: ${{ secrets.CPANEL_PRIVATE_KEY }}
-        port: 22
-        script: cd public_html && composer install --no-dev && yarn install
+      uses: actions/checkout@v2
+      run: cd public_html && composer install --no-dev && yarn install
   generate-translations:
     needs: run-commands
     name: Generate Translations
