@@ -12,12 +12,14 @@ jobs:
     steps:
     - id: Checkout
       uses: actions/checkout@v3
+
     - id: 'auth'
       uses: 'google-github-actions/auth@v0'
       with:
         workload_identity_provider: 'projects/grupohost-358101/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
         # service_account: 'anabel@host.com.do'
         service_account: 'grouphost-356@grouphost-358101.iam.gserviceaccount.com'
+
      - id: deploy
         uses: google-github-actions/deploy-cloudrun@v0
         with:
@@ -32,8 +34,8 @@ jobs:
     #     image: 'gcr.io/cloudrun/centos-7-v20220719'
     #     project_id: 'grupohost-358101'
 
-    - name: 'Use output'
-      run: 'curl "${{ steps.deploy.outputs.url }}"'
+    # - name: 'Use output'
+    #   run: 'curl "${{ steps.deploy.outputs.url }}"'
     # - id: 'upload-folder'
     #   uses: 'google-github-actions/upload-cloud-storage@v0'
     #   with:
