@@ -25,7 +25,8 @@ jobs:
     name: Run SSH command appleboy
     runs-on: grupohost
     steps:
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: executing remote ssh commands using ssh
         run: cd public_html && composer install --no-dev && yarn install
   generate-translations:
