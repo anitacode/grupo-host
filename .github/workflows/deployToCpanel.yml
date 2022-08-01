@@ -4,9 +4,8 @@ on:
     branches:
       - master
 jobs:
-  upload-files:
-    runs-on: 'google-github-actions/upload-cloud-storage@v0'
-    name: Upload Files
+jobs:
+  job_id:
     permissions:
       contents: 'read'
       id-token: 'write'
