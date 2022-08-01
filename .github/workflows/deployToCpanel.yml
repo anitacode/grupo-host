@@ -23,7 +23,7 @@ jobs:
   run-commands:
     needs: web-deploy
     name: Run SSH command appleboy
-    runs-on: self-hosted
+    runs-on: grupohost
     steps:
     - name: executing remote ssh commands using ssh
       uses: appleboy/ssh-action@master
