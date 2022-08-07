@@ -28,12 +28,13 @@ jobs:
 
   job_id:
     # Add "id-token" with the intended permissions.
+    runs-on: ubuntu-latest
     permissions:
       contents: 'read'
       id-token: 'write'
 
     steps:
-    - id: 'auth'
+    - id: 'Auth'
       uses: 'google-github-actions/auth@v0'
       with:
         workload_identity_provider: 'projects/grupohost-358101/locations/global/workloadIdentityPools/my-pool/providers/my-provider'
